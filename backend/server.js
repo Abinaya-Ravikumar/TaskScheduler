@@ -6,20 +6,17 @@ const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const Task = require('./models/Task');
 const User = require('./models/User');
+require('dotenv').config();
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb://127.0.0.1:27017/taskmanager', { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on('error', (error) => {
-  console.error('MongoDB connection error:', error);
-});
-db.once('open', () => {
-  console.log('Connected to MongoDB');
-});
+
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
 
 // Function to generate a secure secret key
 const generateSecureSecretKey = () => {
