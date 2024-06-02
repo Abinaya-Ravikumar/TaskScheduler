@@ -16,7 +16,7 @@ const CompletedTasks = () => {
     alert('No token found. Please log in.');
     return;
   }
-    axios.get('http://127.0.0.1:3001/completed-tasks', {
+    axios.get(`${process.env.REACT_APP_API_URL}/completed-tasks`, {
       headers: {
         Authorization: `Bearer ${token}`, 
       },

@@ -27,7 +27,7 @@ const Login = () => {
 
     if (Object.keys(formErrors).length === 0) {
       try {
-        const response = await axios.post('http://127.0.0.1:3001/login', values);
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, values);
 
         const token = response.data.token;
 

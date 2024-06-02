@@ -25,7 +25,7 @@ const Task = () => {
       alert('No token found. Please log in.');
       return;
     }
-      await axios.post('http://127.0.0.1:3001/tasks', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/tasks`, {
         taskTitle,
         assignedTo,
         dueDate,
@@ -59,7 +59,7 @@ const Task = () => {
     }
     
     try {
-      await axios.put(`http://127.0.0.1:3001/tasks/${completedTask._id}`, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/tasks/${completedTask._id}`, {
         completed: true,
       }, {
         headers: {
@@ -84,7 +84,7 @@ const Task = () => {
       }
     
       try {
-        const response = await axios.get('http://127.0.0.1:3001/tasks', {
+        const response = await axios.get( `${process.env.REACT_APP_API_URL}/tasks`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

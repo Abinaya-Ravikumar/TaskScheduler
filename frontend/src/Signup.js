@@ -28,7 +28,7 @@ const Signup = () => {
     setErrors(formErrors);
   
     if (Object.keys(formErrors).length === 0) {
-      axios.post('http://127.0.0.1:3001/register', values)
+      axios.post(`${process.env.REACT_APP_API_URL}/register`, values)
         .then(result => {
           console.log(result.data);
           navigate('/');
