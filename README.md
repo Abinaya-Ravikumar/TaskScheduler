@@ -1,2 +1,10 @@
 # TaskScheduler
-code is available in master branch 
+## Overview
+This repository contains the source code for the TaskSheduler.
+
+## Default Branch
+The default branch for this project is `master`.
+
+## Instructions
+
+To view the latest code, please switch to the `master` branch 
